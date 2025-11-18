@@ -132,15 +132,20 @@ const Results = ({
 
               {isPerfectScore && (
                 <div className="rounded-2xl border border-success/40 bg-success/10 p-4 text-left space-y-3">
-                  <div className="flex items-center gap-2 text-success font-semibold">
+                  <div className="flex items-center gap-2 text-success font-semibold text-xl">
                     <Sparkles className="h-5 w-5" />
-                    Flawless Victory!
+                    Congratulations!
                   </div>
                   <p className="text-sm text-success">
                     You answered every single question correctly. Outstanding mastery of Indian GK!
                   </p>
-                  <div className="text-4xl animate-bounce" role="img" aria-label="Party popper celebration">
-                    🎉
+                  <div className="flex items-center gap-3">
+                    <span role="img" aria-label="Party popper celebration" className="text-4xl animate-bounce">
+                      🎉
+                    </span>
+                    <span role="img" aria-label="Party popper celebration" className="text-4xl animate-bounce delay-200">
+                      🎊
+                    </span>
                   </div>
                 </div>
               )}
