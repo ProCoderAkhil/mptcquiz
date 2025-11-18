@@ -96,7 +96,7 @@ const NameEntry = ({ onStart, quizSummary }: NameEntryProps) => {
               <Input
                 id="phone"
                 type="tel"
-                placeholder="9876543210"
+                placeholder="Phone number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, "").slice(0, 10))}
                 className="h-12 text-lg border-border/50 focus:border-primary transition-all duration-300"
@@ -113,7 +113,7 @@ const NameEntry = ({ onStart, quizSummary }: NameEntryProps) => {
               <Input
                 id="className"
                 type="text"
-                placeholder="Grade 10B"
+                placeholder="Class or section"
                 value={className}
                 onChange={(e) => setClassName(e.target.value)}
                 className="h-12 text-lg border-border/50 focus:border-primary transition-all duration-300"

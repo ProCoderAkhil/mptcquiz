@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, Users2, ClipboardList, TimerReset, DatabaseZap } from "lucide-react";
-import { QUESTION_SOURCE_URL, questionBank } from "@/data/questions";
+import { QUESTION_SOURCES, questionBank } from "@/data/questions";
 
 const formatDuration = (seconds: number) => {
   if (seconds < 60) return `${Math.round(seconds)}s`;
@@ -116,7 +116,7 @@ const AdminDashboard = () => {
             <div>
               <CardTitle>Question pipeline</CardTitle>
               <p className="text-sm text-muted-foreground">
-                Auto-synced Indian GK questions from our trusted source.
+                Auto-synced Indian GK questions from our trusted sources.
               </p>
             </div>
             <Badge variant="secondary" className="flex items-center gap-1">
@@ -125,12 +125,18 @@ const AdminDashboard = () => {
             </Badge>
           </CardHeader>
           <CardContent className="space-y-2 text-sm text-muted-foreground">
-            <p>
-              Source:{" "}
-              <a href={QUESTION_SOURCE_URL} className="text-primary hover:underline" target="_blank" rel="noreferrer">
-                GkGigs – General Knowledge About India
-              </a>
-            </p>
+            <div className="space-y-1">
+              <p className="font-semibold text-card-foreground">Sources:</p>
+              <ul className="list-disc pl-5 space-y-1">
+                {QUESTION_SOURCES.map((source) => (
+                  <li key={source}>
+                    <a href={source} className="text-primary hover:underline" target="_blank" rel="noreferrer">
+                      {source}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <p>
               Quiz creation and question authoring are disabled in this console to ensure all students receive official,
               automatically curated content.

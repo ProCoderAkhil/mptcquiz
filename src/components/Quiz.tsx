@@ -58,9 +58,9 @@ const Quiz = ({ questions, student, quizDetails, onRestart }: QuizProps) => {
     return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   }, [remainingSeconds]);
 
-  const buildAnswerRecord = () =>
+  const buildAnswerRecord = (answerMap: Record<number, number | null>) =>
     questions.map((question) => {
-      const selected = answers[question.id] ?? null;
+      const selected = answerMap[question.id] ?? null;
       return {
         questionId: question.id,
         selectedOption: selected,
@@ -68,17 +68,17 @@ const Quiz = ({ questions, student, quizDetails, onRestart }: QuizProps) => {
       };
     });
 
-  const currentScore = useMemo(
-    () => buildAnswerRecord().filter((answer) => answer.isCorrect).length,
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [answers, questions]
-  );
+  const currentScore = useMemo(() => {
+    const record = buildAnswerRecord(answers);
+    return record.filter((answer) => answer.isCorrect).length;
+  }, [answers, questions]);
 
-  const finalizeAttempt = (status: AttemptStatus, delay = 1500) => {
+  const finalizeAttempt = (status: AttemptStatus, answerMap?: Record<number, number | null>, delay = 1500) => {
     if (hasFinalizedRef.current) return;
     hasFinalizedRef.current = true;
     setAttemptStatus(status);
-    const answersRecord = buildAnswerRecord();
+    const source = answerMap ?? answers;
+    const answersRecord = buildAnswerRecord(source);
     setAnswerReview(answersRecord);
 
     const finalScore = answersRecord.filter((answer) => answer.isCorrect).length;
@@ -112,22 +112,26 @@ const Quiz = ({ questions, student, quizDetails, onRestart }: QuizProps) => {
     setSelectedAnswer(answerIndex);
     setIsAnswered(true);
     const questionId = currentQuestion.id;
-    setAnswers((prev) => ({ ...prev, [questionId]: answerIndex }));
+    setAnswers((prev) => {
+      const updated = { ...prev, [questionId]: answerIndex };
 
-    setTimeout(() => {
-      if (currentQuestionIndex < totalQuestions - 1) {
-        setCurrentQuestionIndex((prev) => prev + 1);
-        setSelectedAnswer(null);
-        setIsAnswered(false);
-      } else {
-        finalizeAttempt("completed");
-      }
-    }, 1500);
+      setTimeout(() => {
+        if (currentQuestionIndex < totalQuestions - 1) {
+          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+          setSelectedAnswer(null);
+          setIsAnswered(false);
+        } else {
+          finalizeAttempt("completed", updated);
+        }
+      }, 1500);
+
+      return updated;
+    });
   };
 
   useEffect(() => {
     if (remainingSeconds === 0 && !showResults) {
-      finalizeAttempt("timeout", 0);
+      finalizeAttempt("timeout", undefined, 0);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [remainingSeconds]);
@@ -166,13 +170,13 @@ const Quiz = ({ questions, student, quizDetails, onRestart }: QuizProps) => {
           </div>
         </div>
 
-        <div className="mb-4 space-y-4">
+      <div className="mb-4 space-y-4">
           <div className="flex items-center justify-between text-sm">
             <span className="font-medium text-muted-foreground">
               Question {currentQuestionIndex + 1} of {totalQuestions}
             </span>
             <span className="font-semibold text-card-foreground">
-              Score: {currentScore}
+              Stay focused—results appear at the end
             </span>
           </div>
           <ProgressBar current={currentQuestionIndex + 1} total={totalQuestions} />

@@ -8,7 +8,8 @@ export interface Question {
   source?: string;
 }
 
-const SOURCE = "https://gkgigs.com/general-knowledge-about-india/";
+const SOURCE_GKG = "https://gkgigs.com/general-knowledge-about-india/";
+const SOURCE_NHPS = "https://nhps.in/blog/general-knowledge-questions-for-kids/";
 
 const buildQuestion = (
   id: number,
@@ -16,7 +17,8 @@ const buildQuestion = (
   difficulty: Question["difficulty"],
   question: string,
   options: string[],
-  correctAnswer: number
+  correctAnswer: number,
+  source: string = SOURCE_GKG
 ): Question => ({
   id,
   category,
@@ -24,7 +26,7 @@ const buildQuestion = (
   question,
   options,
   correctAnswer,
-  source: SOURCE,
+  source,
 });
 
 export const questionBank: Question[] = [
@@ -268,6 +270,128 @@ export const questionBank: Question[] = [
     "UK",
     "Australia",
   ], 1),
+
+  // NHPS dataset
+  buildQuestion(101, "Indian Geography", "basic", "Which is the national river of India?", [
+    "Ganga",
+    "Yamuna",
+    "Brahmaputra",
+    "Godavari",
+  ], 0, SOURCE_NHPS),
+  buildQuestion(102, "World Geography", "basic", "How many continents are there in the world?", [
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+  ], 2, SOURCE_NHPS),
+  buildQuestion(103, "Indian Civics", "basic", "What is the capital of India?", [
+    "Mumbai",
+    "New Delhi",
+    "Kolkata",
+    "Bengaluru",
+  ], 1, SOURCE_NHPS),
+  buildQuestion(104, "Indian Geography", "basic", "Name the two seas surrounding India.", [
+    "Arabian Sea and Bay of Bengal",
+    "Red Sea and Mediterranean Sea",
+    "Caspian Sea and Black Sea",
+    "Baltic Sea and North Sea",
+  ], 0, SOURCE_NHPS),
+  buildQuestion(105, "Indian Geography", "basic", "Which mountain range is in the northern part of India?", [
+    "Andes",
+    "Himalayas",
+    "Rockies",
+    "Atlas",
+  ], 1, SOURCE_NHPS),
+  buildQuestion(106, "World Geography", "basic", "Which is the deepest ocean in the world?", [
+    "Atlantic Ocean",
+    "Indian Ocean",
+    "Pacific Ocean",
+    "Arctic Ocean",
+  ], 2, SOURCE_NHPS),
+  buildQuestion(107, "World Geography", "basic", "Which latitude runs through the centre of the earth?", [
+    "Tropic of Cancer",
+    "Equator",
+    "Prime Meridian",
+    "Tropic of Capricorn",
+  ], 1, SOURCE_NHPS),
+  buildQuestion(108, "World Geography", "basic", "India is a part of which continent?", [
+    "Africa",
+    "Asia",
+    "Europe",
+    "Australia",
+  ], 1, SOURCE_NHPS),
+  buildQuestion(109, "Indian Geography", "basic", "Name the only desert in India.", [
+    "Gobi Desert",
+    "Thar Desert",
+    "Sahara Desert",
+    "Namib Desert",
+  ], 1, SOURCE_NHPS),
+  buildQuestion(110, "World Geography", "basic", "Which is the tallest mountain in the world?", [
+    "Mount Everest",
+    "K2",
+    "Annapurna",
+    "Makalu",
+  ], 0, SOURCE_NHPS),
+  buildQuestion(111, "Science Basics", "basic", "Name the process by which plants prepare food.", [
+    "Respiration",
+    "Photosynthesis",
+    "Transpiration",
+    "Fermentation",
+  ], 1, SOURCE_NHPS),
+  buildQuestion(112, "Science Basics", "basic", "Which gas do humans inhale?", [
+    "Carbon dioxide",
+    "Oxygen",
+    "Nitrogen",
+    "Hydrogen",
+  ], 1, SOURCE_NHPS),
+  buildQuestion(113, "Astronomy", "basic", "Which planet is called the Red Planet?", [
+    "Mars",
+    "Jupiter",
+    "Saturn",
+    "Venus",
+  ], 0, SOURCE_NHPS),
+  buildQuestion(114, "Astronomy", "basic", "The solar system is a part of which galaxy?", [
+    "Whirlpool Galaxy",
+    "Milky Way Galaxy",
+    "Sombrero Galaxy",
+    "Pinwheel Galaxy",
+  ], 1, SOURCE_NHPS),
+  buildQuestion(115, "Astronomy", "basic", "How many planets are there in the solar system?", [
+    "Seven",
+    "Eight",
+    "Nine",
+    "Ten",
+  ], 1, SOURCE_NHPS),
+  buildQuestion(116, "Indian History", "basic", "Who is the “Father of our Nation”?", [
+    "Netaji Subhas Chandra Bose",
+    "Mahatma Gandhi",
+    "Bal Gangadhar Tilak",
+    "Lala Lajpat Rai",
+  ], 1, SOURCE_NHPS),
+  buildQuestion(117, "Indian History", "basic", "When did India get independence?", [
+    "1945",
+    "1946",
+    "1947",
+    "1948",
+  ], 2, SOURCE_NHPS),
+  buildQuestion(118, "Indian History", "basic", "When is Republic Day celebrated?", [
+    "26 January",
+    "15 August",
+    "2 October",
+    "14 November",
+  ], 0, SOURCE_NHPS),
+  buildQuestion(119, "Indian History", "basic", "Who built the Taj Mahal?", [
+    "Akbar",
+    "Shah Jahan",
+    "Aurangzeb",
+    "Humayun",
+  ], 1, SOURCE_NHPS),
+  buildQuestion(120, "Indian Literature", "basic", "Who wrote the National Anthem of India?", [
+    "Rabindranath Tagore",
+    "Bankim Chandra Chatterjee",
+    "Sarojini Naidu",
+    "Subramania Bharati",
+  ], 0, SOURCE_NHPS),
 ];
 
 const questionLookup = new Map(questionBank.map((question) => [question.id, question]));
@@ -277,4 +401,4 @@ export const getQuestionsByIds = (ids: number[]): Question[] =>
     .map((id) => questionLookup.get(id))
     .filter((question): question is Question => Boolean(question));
 
-export const QUESTION_SOURCE_URL = SOURCE;
+export const QUESTION_SOURCES = [SOURCE_GKG, SOURCE_NHPS];
