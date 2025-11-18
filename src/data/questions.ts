@@ -9,7 +9,7 @@ export interface Question {
 }
 
 const SOURCE_GKG = "https://gkgigs.com/general-knowledge-about-india/";
-const SOURCE_NHPS = "https://nhps.in/blog/general-knowledge-questions-for-kids/";
+const SOURCE_RANGOLI = "https://www.rangolischool.co.in/50-fun-interesting-general-knowledge-questions-for-kids/";
 
 const buildQuestion = (
   id: number,
@@ -271,127 +271,187 @@ export const questionBank: Question[] = [
     "Australia",
   ], 1),
 
-  // NHPS dataset
-  buildQuestion(101, "Indian Geography", "basic", "Which is the national river of India?", [
-    "Ganga",
-    "Yamuna",
-    "Brahmaputra",
-    "Godavari",
-  ], 0, SOURCE_NHPS),
-  buildQuestion(102, "World Geography", "basic", "How many continents are there in the world?", [
+  // Rangoli dataset
+  buildQuestion(101, "Indian Civics", "basic", "What is the capital of India?", [
+    "Mumbai",
+    "New Delhi",
+    "Chennai",
+    "Hyderabad",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(102, "Calendars", "basic", "How many days are there in a week?", [
     "Five",
     "Six",
     "Seven",
     "Eight",
-  ], 2, SOURCE_NHPS),
-  buildQuestion(103, "Indian Civics", "basic", "What is the capital of India?", [
-    "Mumbai",
-    "New Delhi",
-    "Kolkata",
-    "Bengaluru",
-  ], 1, SOURCE_NHPS),
-  buildQuestion(104, "Indian Geography", "basic", "Name the two seas surrounding India.", [
-    "Arabian Sea and Bay of Bengal",
-    "Red Sea and Mediterranean Sea",
-    "Caspian Sea and Black Sea",
-    "Baltic Sea and North Sea",
-  ], 0, SOURCE_NHPS),
-  buildQuestion(105, "Indian Geography", "basic", "Which mountain range is in the northern part of India?", [
-    "Andes",
-    "Himalayas",
-    "Rockies",
-    "Atlas",
-  ], 1, SOURCE_NHPS),
-  buildQuestion(106, "World Geography", "basic", "Which is the deepest ocean in the world?", [
-    "Atlantic Ocean",
-    "Indian Ocean",
-    "Pacific Ocean",
-    "Arctic Ocean",
-  ], 2, SOURCE_NHPS),
-  buildQuestion(107, "World Geography", "basic", "Which latitude runs through the centre of the earth?", [
-    "Tropic of Cancer",
-    "Equator",
-    "Prime Meridian",
-    "Tropic of Capricorn",
-  ], 1, SOURCE_NHPS),
-  buildQuestion(108, "World Geography", "basic", "India is a part of which continent?", [
-    "Africa",
-    "Asia",
-    "Europe",
-    "Australia",
-  ], 1, SOURCE_NHPS),
-  buildQuestion(109, "Indian Geography", "basic", "Name the only desert in India.", [
-    "Gobi Desert",
-    "Thar Desert",
-    "Sahara Desert",
-    "Namib Desert",
-  ], 1, SOURCE_NHPS),
-  buildQuestion(110, "World Geography", "basic", "Which is the tallest mountain in the world?", [
-    "Mount Everest",
-    "K2",
-    "Annapurna",
-    "Makalu",
-  ], 0, SOURCE_NHPS),
-  buildQuestion(111, "Science Basics", "basic", "Name the process by which plants prepare food.", [
-    "Respiration",
-    "Photosynthesis",
-    "Transpiration",
-    "Fermentation",
-  ], 1, SOURCE_NHPS),
-  buildQuestion(112, "Science Basics", "basic", "Which gas do humans inhale?", [
+  ], 2, SOURCE_RANGOLI),
+  buildQuestion(103, "National Symbols", "basic", "What is the national animal of India?", [
+    "Asiatic Lion",
+    "Bengal Tiger",
+    "Elephant",
+    "Peacock",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(104, "Indian History", "basic", "Who was the first Prime Minister of India?", [
+    "Jawaharlal Nehru",
+    "Sardar Patel",
+    "Mahatma Gandhi",
+    "Subhas Chandra Bose",
+  ], 0, SOURCE_RANGOLI),
+  buildQuestion(105, "Indian Geography", "basic", "What is the capital of Gujarat?", [
+    "Ahmedabad",
+    "Surat",
+    "Gandhinagar",
+    "Rajkot",
+  ], 2, SOURCE_RANGOLI),
+  buildQuestion(106, "Astronomy", "basic", "What planet do we live on?", [
+    "Mars",
+    "Earth",
+    "Venus",
+    "Jupiter",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(107, "Science Basics", "basic", "How many colours are there in a rainbow?", [
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+  ], 2, SOURCE_RANGOLI),
+  buildQuestion(108, "Wildlife", "basic", "What is the largest mammal in the world?", [
+    "African Elephant",
+    "Blue Whale",
+    "Giraffe",
+    "Polar Bear",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(109, "Science Basics", "basic", "Which gas do we breathe in to stay alive?", [
     "Carbon dioxide",
     "Oxygen",
     "Nitrogen",
     "Hydrogen",
-  ], 1, SOURCE_NHPS),
-  buildQuestion(113, "Astronomy", "basic", "Which planet is called the Red Planet?", [
-    "Mars",
-    "Jupiter",
-    "Saturn",
-    "Venus",
-  ], 0, SOURCE_NHPS),
-  buildQuestion(114, "Astronomy", "basic", "The solar system is a part of which galaxy?", [
-    "Whirlpool Galaxy",
-    "Milky Way Galaxy",
-    "Sombrero Galaxy",
-    "Pinwheel Galaxy",
-  ], 1, SOURCE_NHPS),
-  buildQuestion(115, "Astronomy", "basic", "How many planets are there in the solar system?", [
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(110, "Nature", "basic", "What do bees collect from flowers?", [
+    "Water",
+    "Pollen",
+    "Nectar",
+    "Seeds",
+  ], 2, SOURCE_RANGOLI),
+  buildQuestion(111, "Math", "basic", "How many sides does a triangle have?", [
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(112, "Math", "basic", "What comes after the number 9?", [
+    "10",
+    "11",
+    "12",
+    "8",
+  ], 0, SOURCE_RANGOLI),
+  buildQuestion(113, "Math", "basic", "What is 5 + 3?", [
+    "6",
+    "7",
+    "8",
+    "9",
+  ], 2, SOURCE_RANGOLI),
+  buildQuestion(114, "Human Body", "basic", "How many fingers do we have on both hands?", [
+    "8",
+    "9",
+    "10",
+    "12",
+  ], 2, SOURCE_RANGOLI),
+  buildQuestion(115, "Geometry", "basic", "What shape has four equal sides?", [
+    "Rectangle",
+    "Square",
+    "Triangle",
+    "Pentagon",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(116, "Sports", "basic", "Which sport is known as the “gentleman’s game”?", [
+    "Cricket",
+    "Football",
+    "Hockey",
+    "Tennis",
+  ], 0, SOURCE_RANGOLI),
+  buildQuestion(117, "Sports", "basic", "How many players are there in a football team?", [
+    "9",
+    "10",
+    "11",
+    "12",
+  ], 2, SOURCE_RANGOLI),
+  buildQuestion(118, "Sports", "basic", "What is the national sport of India according to the blog?", [
+    "Cricket",
+    "Hockey",
+    "Kabaddi",
+    "Badminton",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(119, "Sports", "basic", "Who is known as the “God of Cricket”?", [
+    "Virat Kohli",
+    "MS Dhoni",
+    "Sachin Tendulkar",
+    "Kapil Dev",
+  ], 2, SOURCE_RANGOLI),
+  buildQuestion(120, "Sports", "basic", "How many rings are there in the Olympic logo?", [
+    "Four",
+    "Five",
+    "Six",
     "Seven",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(121, "Wildlife", "basic", "Which animal is the king of the jungle?", [
+    "Tiger",
+    "Lion",
+    "Leopard",
+    "Elephant",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(122, "Wildlife", "basic", "What do pandas mainly eat?", [
+    "Bamboo",
+    "Fish",
+    "Berries",
+    "Grass",
+  ], 0, SOURCE_RANGOLI),
+  buildQuestion(123, "Wildlife", "basic", "How many legs does a spider have?", [
+    "Four",
+    "Six",
     "Eight",
-    "Nine",
     "Ten",
-  ], 1, SOURCE_NHPS),
-  buildQuestion(116, "Indian History", "basic", "Who is the “Father of our Nation”?", [
-    "Netaji Subhas Chandra Bose",
-    "Mahatma Gandhi",
-    "Bal Gangadhar Tilak",
-    "Lala Lajpat Rai",
-  ], 1, SOURCE_NHPS),
-  buildQuestion(117, "Indian History", "basic", "When did India get independence?", [
-    "1945",
-    "1946",
-    "1947",
-    "1948",
-  ], 2, SOURCE_NHPS),
-  buildQuestion(118, "Indian History", "basic", "When is Republic Day celebrated?", [
-    "26 January",
-    "15 August",
-    "2 October",
-    "14 November",
-  ], 0, SOURCE_NHPS),
-  buildQuestion(119, "Indian History", "basic", "Who built the Taj Mahal?", [
-    "Akbar",
-    "Shah Jahan",
-    "Aurangzeb",
-    "Humayun",
-  ], 1, SOURCE_NHPS),
-  buildQuestion(120, "Indian Literature", "basic", "Who wrote the National Anthem of India?", [
-    "Rabindranath Tagore",
-    "Bankim Chandra Chatterjee",
-    "Sarojini Naidu",
-    "Subramania Bharati",
-  ], 0, SOURCE_NHPS),
+  ], 2, SOURCE_RANGOLI),
+  buildQuestion(124, "Birds", "basic", "Which bird is known for its ability to talk?", [
+    "Parrot",
+    "Sparrow",
+    "Eagle",
+    "Owl",
+  ], 0, SOURCE_RANGOLI),
+  buildQuestion(125, "Wildlife", "basic", "What is the fastest land animal?", [
+    "Cheetah",
+    "Horse",
+    "Lion",
+    "Gazelle",
+  ], 0, SOURCE_RANGOLI),
+  buildQuestion(126, "World History", "basic", "Who discovered America?", [
+    "Vasco da Gama",
+    "Christopher Columbus",
+    "Ferdinand Magellan",
+    "Marco Polo",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(127, "World Geography", "basic", "What is the largest ocean on Earth?", [
+    "Indian Ocean",
+    "Pacific Ocean",
+    "Atlantic Ocean",
+    "Arctic Ocean",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(128, "World Geography", "basic", "What is the capital of the USA?", [
+    "New York",
+    "Los Angeles",
+    "Washington, D.C.",
+    "Chicago",
+  ], 2, SOURCE_RANGOLI),
+  buildQuestion(129, "World Geography", "basic", "In which continent is the Sahara Desert located?", [
+    "Asia",
+    "Africa",
+    "Australia",
+    "South America",
+  ], 1, SOURCE_RANGOLI),
+  buildQuestion(130, "World Geography", "basic", "What is the longest river in the world?", [
+    "Amazon River",
+    "Nile River",
+    "Yangtze River",
+    "Mississippi River",
+  ], 1, SOURCE_RANGOLI),
 ];
 
 const questionLookup = new Map(questionBank.map((question) => [question.id, question]));
@@ -401,4 +461,4 @@ export const getQuestionsByIds = (ids: number[]): Question[] =>
     .map((id) => questionLookup.get(id))
     .filter((question): question is Question => Boolean(question));
 
-export const QUESTION_SOURCES = [SOURCE_GKG, SOURCE_NHPS];
+export const QUESTION_SOURCES = [SOURCE_GKG, SOURCE_RANGOLI];

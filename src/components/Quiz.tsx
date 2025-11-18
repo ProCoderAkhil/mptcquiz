@@ -106,6 +106,11 @@ const Quiz = ({ questions, student, quizDetails, onRestart }: QuizProps) => {
     }, delay);
   };
 
+  useEffect(() => {
+    setSelectedAnswer(null);
+    setIsAnswered(false);
+  }, [currentQuestionIndex]);
+
   const handleAnswerSelect = (answerIndex: number) => {
     if (isAnswered || showResults) return;
 
@@ -118,8 +123,6 @@ const Quiz = ({ questions, student, quizDetails, onRestart }: QuizProps) => {
       setTimeout(() => {
         if (currentQuestionIndex < totalQuestions - 1) {
           setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-          setSelectedAnswer(null);
-          setIsAnswered(false);
         } else {
           finalizeAttempt("completed", updated);
         }
